@@ -1,0 +1,348 @@
+<body id="products-page">
+<div id="page-container">
+  <div id="fx-container" class="fc-opacity">
+    <div id="page-content" class="block full">
+      <div class="block-header">
+        <div class="row remove-margin">
+          <div class="col-md-6 col-sm-6">
+            <a href="/users/new" class="header-title-link" style="padding: 20px">
+              <h1><i class="fa fa-barcode animation-expandUp"></i>
+                <div class="heading" id="nofProducts" style="  font-size: 24px"></div>
+                <small>Είδη στον κατάλογο</small>
+              </h1>
+            </a>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <a href="/users/new" class="header-title-link" style="padding: 20px">
+              <h1><i class="fa fa-plus animation-expandUp"></i> Προσθήκη<br>
+                <small>Νέου είδους στον κατάλογο</small>
+              </h1>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Αναζήτηση -->
+      <div class="breadcrumb breadcrumb-top">
+        <div class="row remove-margin">
+          <div class="row">
+            <!-- First level -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon">1 <i class="fa fa-database"> </i></span>
+                </div>
+              </a>
+            </div>
+            <!-- Περιγραφή -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-comment-o"></i></span>
+                  <input type="text" id="data-column-productDescription" class="  form-control input-sm search-input-text" style="color: black" placeholder="Περιγραφή">
+                </div>
+              </a>
+            </div>
+            <!-- Είδος προιόντος -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
+                </div>
+              </a>
+            </div>
+            <!-- Επώνυμο -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-pencil-square-o"></i></span>
+                  <select id="data-column-design" class="search-input-select form form-control input-sm" title="">
+                    <option value="">Επώνυμο...</option>
+                    <option value="1">Ναι</option>
+                    <option value="0">Όχι</option>
+                  </select>
+                </div>
+              </a>
+            </div>
+            <!-- unitofMeasure -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-folder"></i></span>
+                </div>
+              </a>
+            </div>
+            <!-- μπορεί ο πωλητής να αλλάζει την τιμή -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-adjust"></i></span>
+                  <select id="data-column-changePrice" class="search-input-select  form form-control input-sm" title="">
+                    <option value="">Ο πωλητής μπορεί να αλλάζει την αρχική τιμή...</option>
+                    <option value="1">Ναι</option>
+                    <option value="0">Όχι</option>
+                  </select>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Second level -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon">2 <i class="fa fa-database"></i></span>
+                  <%#= f.grouped_collection_select(:second_level_id, @first_levels, :second_levels, :name, :id, :name, {}, :style => "width:100%", :class => 'form form-control') %>
+                </div>
+              </a>
+            </div>
+            <!-- Κωδικός -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
+                  <input type="text" id="data-column-productCode" class="  form-control input-sm  search-input-text" style=" color:black" placeholder="Κωδικός">
+                </div>
+              </a>
+            </div>
+            <!-- Ενεργό / Ανενεργό -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-check"></i></span>
+                  <select id="data-column-catalog" class="search-input-select form form-control input-sm" title="">
+                    <option value="">Όλα τα προϊόντα</option>
+                    <option value="1" selected>Ενεργό</option>
+                    <option value="0">Ανενεργό</option>
+                  </select>
+                </div>
+              </a>
+            </div>
+            <!-- Διαθέσιμο Απο -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                  <input type="text" id="data-column-available_from" class="form form-control input-sm search-input-select datepickerGR" placeholder="Διαθέσιμο από" style="width:100%;color: black">
+                </div>
+              </a>
+            </div>
+            <!-- Τιμή -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-eur"></i></span>
+                  <input type="text" id="data-column-price" class="form form-control search-input-text input-sm" style="color: black" placeholder="Τιμή">
+                </div>
+              </a>
+            </div>
+            <!-- AccountingFastID-->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-fast-forward"></i></span>
+                  <select id="data-column-AccountingFastID" class="search-input-select form form-control input-sm" title="Ομαδοποίηση στο δελτίο παραγγελίας">
+                    <option value="">AccountingFastID...</option>
+                    <option value="1">1</option>
+                    <option value="0">0</option>
+                  </select>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Third level -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon">3 <i class="fa fa-database"></i></span>
+                  <%#= f.grouped_collection_select(:second_level_id, @first_levels, :second_levels, :name, :id, :name, {}, :style => "width:100%", :class => 'form form-control') %>
+                </div>
+              </a>
+            </div>
+            <!-- Διαθεσιμότητα -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                  <select id="data-column-availability" class="search-input-select form form-control input-sm" title="">
+                    <option value="">Διαθεσιμότητα...</option>
+                    <option value="Σε απόθεμα">Σε απόθεμα</option>
+                    <option value="Εξαντλημένο">Εξαντλημένο</option>
+                    <option value="Σε προ παραγγελία">Σε προ παραγγελία</option>
+                  </select>
+                </div>
+              </a>
+            </div>
+
+            <!-- minOrder -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-bars"></i></span>
+                  <input type="text" id="data-column-minOrder" class="form form-control search-input-text input-sm" style="color: black" placeholder="Ελάχιστη ποσότητα παραγγελίας">
+                </div>
+              </a>
+            </div>
+            <!-- Διαθέσιμο Έως -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                  <input type="text" id="data-column-available_to" class="form form-control input-sm search-input-select datepickerGR" placeholder="Διαθέσιμο έως" style="width:100%;color: black">
+                </div>
+              </a>
+            </div>
+            <!-- crazyPrice-->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-eur"></i></span>
+                  <input type="text" id="data-column-crazyPrice" class="form form-control search-input-text input-sm" style="color: black" placeholder="crazyPrice">
+                </div>
+              </a>
+            </div>
+            <!-- Ηλεκτρονικό-->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-plug"></i></span>
+                  <select id="data-column-ilektroniko" class="search-input-select form form-control input-sm" title="Ομαδοποίηση στο δελτίο παραγγελίας">
+                    <option value="">Ηλεκτρονικό...</option>
+                    <option value="1">ΝΑΙ</option>
+                    <option value="0">ΟΧΙ</option>
+                  </select>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Υπάρχει eshop ID -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"> <i class="fa fa-globe"></i></span>
+                  <select id="data-column-eshopID" class="search-input-select form form-control input-sm" title="Υπάρχει eshopID">
+                    <option value="">eshopID...</option>
+                    <option value="1">Ναι</option>
+                    <option value="0">Όχι</option>
+                  </select>
+                </div>
+              </a>
+            </div>
+            <!-- Αναζήτηση eshop ID -->
+            <div class="col-md-2 col-sm-4">
+              <a class="header-title-link" style="border-color: transparent">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                  <input type="text" id="data-column-eshopID-search" class="form form-control search-input-text input-sm" style="color: black" placeholder="Αναζήτηση eshop ID">
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <table class="table table-hover table-striped" style="width: 100%" id="table_products" data-source="<%= users_url(format: 'json') %>" data-turbolinks="false">
+        <thead style="background-color: #e9e9e9;color:#555">
+        <tr class="xsmall85 noBorder" style="text-align: center;letter-spacing: 2px">
+          <td>#</td>
+          <td>name</td>
+          <td>price</td>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        </tfoot>
+      </table>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+
+
+
+<script>
+
+
+
+
+
+    $(document).ready(function() {
+
+
+        var products_table = $('#table_products');
+        var products_table_tbody = products_table.find('tbody');
+        var table_products_datatable = products_table.DataTable({
+            "lengthMenu": [10, 25, 50, 100, 200, 500, 1000, 2000],
+            "bDestroy": true,
+            "searching": false,
+            "order": [[1, "desc"]],
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "iDisplayLength": 25,
+            "bFilter": true,
+            "bServerSide": true,
+            "sAjaxSource": products_table.data('source'),
+            "fnServerParams": function (aoData) {
+                aoData.push({ "name": "productDescription", "value": $('#data-column-productDescription').val() });
+            },
+            "language": {
+                "lengthMenu": "_MENU_",
+                "zeroRecords": "Nothing found - sorry",
+                "info": "",
+                "infoEmpty": "",
+                "infoFiltered": "",
+                "search": "Αναζήτηση",
+                "paginate": {
+                    "previous": "Προηγούμενο",
+                    "first": "Πρώτο",
+                    "last": "Τελευταίο",
+                    "next": "Επόμενο"
+                }
+            }
+        });
+    });
+
+
+
+    $(document).ready(function () {
+
+
+
+        /**
+         *  Initialize το date_picker της javascript για τα element με class 'datepicker'
+         */
+        $(".datepickerGR").datepicker({
+            closeText: 'Κλείσιμο',
+            prevText: 'Προηγούμενος',
+            nextText: 'Επόμενος',
+            currentText: 'Σήμερα',
+            monthNames: ['Ιανουάριος', 'Φεβρουάριος', 'Μάρτιος', 'Απρίλιος', 'Μάιος', 'Ιούνιος',
+                'Ιούλιος', 'Αύγουστος', 'Σεπτέμβριος', 'Οκτώβριος', 'Νοέμβριος', 'Δεκέμβριος'],
+            monthNamesShort: ['Ιαν', 'Φεβ', 'Μαρ', 'Απρ', 'Μαι', 'Ιουν',
+                'Ιουλ', 'Αυγ', 'Σεπ', 'Οκτ', 'Νοε', 'Δεκ'],
+            dayNames: ['Κυριακή', 'Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο'],
+            dayNamesShort: ['Κυρ', 'Δευ', 'Τρι', 'Τετ', 'Πεμ', 'Παρ', 'Σαβ'],
+            dayNamesMin: ['Κυ', 'Δε', 'Τρ', 'Τε', 'Πε', 'Πα', 'Σα'],
+            weekHeader: 'Εβδ',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+
+        });
+
+    });
+</script>

@@ -45,7 +45,7 @@ class ProductsDatatable
   end
 
   def fetch_products
-    products = Product.all.order("#{sort_column} #{sort_direction}")
+    products = User.all.order("#{sort_column} #{sort_direction}")
     products = products.page(page).per_page(per_page)
 
 
